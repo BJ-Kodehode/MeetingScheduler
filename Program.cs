@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MeetingScheduler.Controllers;
-using MeetingScheduler.Models;
+// using MeetingScheduler.Models;
 
 namespace MeetingScheduler
 {
@@ -56,9 +56,10 @@ namespace MeetingScheduler
                     Console.WriteLine("\nRegistrerte møter:");
                     foreach (var meeting in meetings)
                     {
-                        Console.WriteLine($"ID: {meeting.Id}, Deltakere: {meeting.Participants}, Start: {meeting.MeetingTime}, Slutt: {meeting.EndTime}, Varighet: {meeting.DurationInMinutes} minutter");
+                        Console.WriteLine($"ID: {meeting.Id}, Deltakere: {meeting.Participants}, Start: {meeting.MeetingTime}, Slutt: {meeting.EndTime}, Varighet: {meeting.DurationInMinutes} min");
                     }
                 }
+
 
 
                 else if (choice == "3")
