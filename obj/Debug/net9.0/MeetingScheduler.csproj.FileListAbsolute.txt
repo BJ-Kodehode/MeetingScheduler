@@ -41,3 +41,4 @@ C:\Koding\Kurs\C#\MeetingScheduler\bin\Debug\net9.0\runtimes\win\lib\netstandard
 C:\Koding\Kurs\C#\MeetingScheduler\bin\Debug\net9.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Koding\Kurs\C#\MeetingScheduler\obj\Debug\net9.0\MeetingScheduler.csproj.AssemblyReference.cache
 C:\Koding\Kurs\C#\MeetingScheduler\obj\Debug\net9.0\MeetingS.C7DB3F2C.Up2Date
+C:\Koding\Kurs\C#\MeetingScheduler\obj\Debug\net9.0\MeetingScheduler.sourcelink.json

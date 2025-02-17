@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MeetingScheduler")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0145448509f5aa0e5d9131adba441c8c505b25b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("MeetingScheduler")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MeetingScheduler")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

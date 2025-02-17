@@ -27,7 +27,8 @@ namespace MeetingScheduler.Controllers
             Id INTEGER PRIMARY KEY AUTOINCREMENT, 
             Participants TEXT NOT NULL, 
             MeetingTime TEXT NOT NULL,
-            DurationInMinutes INTEGER NOT NULL
+            DurationInMinutes INTEGER NOT NULL,
+            EndTime TEXT NOT NULL
         );";
                 using (var cmd = new SQLiteCommand(tableCommand, connection))
                 {
@@ -37,23 +38,25 @@ namespace MeetingScheduler.Controllers
         }
 
 
+
         // Legger til møte i databasen
         public void AddMeeting(Meeting meeting)
         {
             using (var connection = new SQLiteConnection(_dbPath))
             {
                 connection.Open();
-                string insertCommand = "INSERT INTO Meetings (Participants, MeetingTime, DurationInMinutes) VALUES (@Participants, @MeetingTime, @DurationInMinutes);";
+                string insertCommand = "INSERT INTO Meetings (Participants, MeetingTime, DurationInMinutes, EndTime) VALUES (@Participants, @MeetingTime, @DurationInMinutes, @EndTime);";
                 using (var cmd = new SQLiteCommand(insertCommand, connection))
                 {
                     cmd.Parameters.AddWithValue("@Participants", meeting.Participants);
                     cmd.Parameters.AddWithValue("@MeetingTime", meeting.MeetingTime.ToString("yyyy-MM-dd HH:mm:ss"));
                     cmd.Parameters.AddWithValue("@DurationInMinutes", meeting.DurationInMinutes);
+                    cmd.Parameters.AddWithValue("@EndTime", meeting.EndTime.ToString("yyyy-MM-dd HH:mm:ss")); // Lagre sluttid
                     cmd.ExecuteNonQuery();
                 }
             }
-            SaveMeetingToJson(meeting);
         }
+
 
 
         // Leser møter fra databasen
@@ -69,18 +72,23 @@ namespace MeetingScheduler.Controllers
                 {
                     while (reader.Read())
                     {
+                        DateTime meetingTime = DateTime.Parse(reader.GetString(2));
+                        int duration = reader.GetInt32(3);
+                        DateTime endTime = DateTime.Parse(reader.GetString(4));
+
                         meetings.Add(new Meeting
                         {
                             Id = reader.GetInt32(0),
                             Participants = reader.GetString(1),
-                            MeetingTime = DateTime.Parse(reader.GetString(2)),
-                            DurationInMinutes = reader.GetInt32(3)
+                            MeetingTime = meetingTime,
+                            DurationInMinutes = duration,
                         });
                     }
                 }
             }
             return meetings;
         }
+
 
 
         // Logger møter til en ekstern JSON-fil

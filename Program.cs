@@ -56,9 +56,10 @@ namespace MeetingScheduler
                     Console.WriteLine("\nRegistrerte møter:");
                     foreach (var meeting in meetings)
                     {
-                        Console.WriteLine($"ID: {meeting.Id}, Deltakere: {meeting.Participants}, Tidspunkt: {meeting.MeetingTime}, Varighet: {meeting.DurationInMinutes} minutter");
+                        Console.WriteLine($"ID: {meeting.Id}, Deltakere: {meeting.Participants}, Start: {meeting.MeetingTime}, Slutt: {meeting.EndTime}, Varighet: {meeting.DurationInMinutes} minutter");
                     }
                 }
+
 
                 else if (choice == "3")
                 {
